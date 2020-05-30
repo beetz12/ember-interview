@@ -17,10 +17,9 @@
                     <div class="phone-container">
                         <p>{{location.attributes.phone}}</p>
                     </div>
-
                 </card.content>
                 <card.actions @class="layout-column">
-                    <PaperButton @raised={{true}} @primary={{true}}>Select</PaperButton>
+                    <PaperButton @raised={{true}} @primary={{true}} {{on "click" (fn this.showSelectedLocation location) }}>Select</PaperButton>
                 </card.actions>
                 </div>
             </PaperCard>
