@@ -1,0 +1,41 @@
+@import 'ember-paper';
+
+body {
+    background-color: #f0f2f4
+}
+
+.button {
+    padding: 10px 15px 10px;
+    text-decoration: none;
+    color: #fff;
+    background: #016aba;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0.9;
+    display: inline-block;
+  }
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding-right: 12px;
+    padding-left: 6px;
+}
+
+.card-wrapper {
+    margin:12px;
+}
+
+.card-wrapper:first-child {
+    margin-top:24px;
+}
+
+.card-wrapper:last-child {
+    margin-bottom: 24px;
+}

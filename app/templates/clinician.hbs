@@ -1,0 +1,22 @@
+
+
+<div class="layout-column flex-xs flex-gt-xs-100">
+    {{#each @model as |service|}}
+      <div class="card-wrapper">
+        <PaperCard as |card|>
+          <div class="flex-container">
+            <card.title as |title|>
+              <title.text as |text|>
+                <text.headline>{{service.attributes.description}}</text.headline>
+                <text.subhead>{{service.attributes.duration}} minutes</text.subhead>
+              </title.text>
+            </card.title>
+            <card.actions>
+              {{!-- <PaperButton @raised={{true}} @primary={{true}}>Select</PaperButton> --}}
+              <LinkTo @route="location" @model={{service}} class="button">Select</LinkTo>
+            </card.actions>
+            </div>
+          </PaperCard>
+        </div>
+    {{/each}}
+  </div>
