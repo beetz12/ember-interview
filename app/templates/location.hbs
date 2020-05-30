@@ -1,19 +1,29 @@
-<div class="layout-row flex-xs flex-gt-xs-33">
+<div class="layout-row layout-xs-column">
     {{#each @model as |location|}}
-      <div class="card-wrapper">
-        <PaperCard as |card|>
-          <div class="flex-container">
-            <card.title as |title|>
-              <title.text as |text|>
-                <text.headline>{{location.attributes.description}}</text.headline>
-                <text.subhead>{{location.attributes.duration}} minutes</text.subhead>
-              </title.text>
-            </card.title>
-            {{!-- <card.actions>
-              <LinkTo @route="location" @model={{location}} class="button">Select</LinkTo>
-            </card.actions> --}}
-            </div>
-          </PaperCard>
+      <div class="location-card-wrapper">
+            <PaperCard as |card|>
+                <div class="location-card-wrapper">
+                <card.image @src="/assets/images/google-map-small.png" @alt="Google Map" @title="Google Map" />
+                <card.title as |title|>
+                    <title.text as |text|>
+                    <text.headline>{{location.attributes.name}}</text.headline>
+                    </title.text>
+                </card.title>
+                <card.content>
+                    <div class="location-container">
+                        <p>{{location.attributes.street}}</p>
+                        <p>{{location.attributes.city}}, {{location.attributes.state}} {{location.attributes.zip}}</p>
+                    </div>
+                    <div class="phone-container">
+                        <p>{{location.attributes.phone}}</p>
+                    </div>
+
+                </card.content>
+                <card.actions @class="layout-column">
+                    <PaperButton @raised={{true}} @primary={{true}}>Select</PaperButton>
+                </card.actions>
+                </div>
+            </PaperCard>
         </div>
     {{/each}}
   </div>
