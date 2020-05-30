@@ -2,6 +2,7 @@ import Route from '@ember/routing/route';
 import fetch from 'fetch';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
+import ENV from '../config/environment';
 
 export default class LocationRoute extends Route {
     @service toast;
@@ -9,7 +10,7 @@ export default class LocationRoute extends Route {
 
     async initialize(params) {
         const {clinician_id, cpt_id} = params;
-        const response = await fetch(`https://johnny-appleseed.clientsecure.me/client-portal-api/offices?filter[clinicianId]=${clinician_id}&filter[cptCodeId]=${cpt_id}`, {
+        const response = await fetch(`${ENV.APP.BASE_API}/client-portal-api/offices?filter[clinicianId]=${clinician_id}&filter[cptCodeId]=${cpt_id}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/vnd.api+json',

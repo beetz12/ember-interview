@@ -1,11 +1,12 @@
 import Route from '@ember/routing/route';
 import fetch from 'fetch';
+import ENV from '../config/environment';
 
 export default class ClinicianRoute extends Route {
 
     async model(params) {
         const clinician_id  = params.clinician_id;
-        const response = await fetch(`https://johnny-appleseed.clientsecure.me/client-portal-api/cpt-codes?filter[clinicianId]=${clinician_id}`, {
+        const response = await fetch(`${ENV.APP.BASE_API}/client-portal-api/cpt-codes?filter[clinicianId]=${clinician_id}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/vnd.api+json',
